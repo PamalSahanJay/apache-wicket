@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+ext {
+    springDataCommonsVersion = '2.5.4'
+    springVersion = '5.3.9'
+    springBootVersion = '2.2.13.RELEASE'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation (
+        "org.apache.wicket:wicket-core:6.9.0",
+        "org.apache.wicket:wicket-extensions:6.9.0",
+        "org.apache.wicket:wicket-spring:6.9.0"
+    )
+    implementation "org.springframework.data:spring-data-commons:$springDataCommonsVersion@jar"
+    implementation "org.springframework:spring-web:$springVersion"
+    implementation "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    implementation 'com.google.guava:guava:31.0.1-jre'
+}
+
+test {
+    useJUnitPlatform()
+}
